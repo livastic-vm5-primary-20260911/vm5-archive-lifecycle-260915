@@ -1,0 +1,7 @@
+pull_request_rules:
+  - name: VM5 archive lifecycle staged scope merge
+    conditions:
+      - scope = vm5-archive-stage-260915
+    actions:
+      merge:
+        method: merge
