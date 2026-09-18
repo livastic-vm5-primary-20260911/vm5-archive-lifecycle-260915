@@ -1,11 +1,7 @@
 name: VM5 Auto Retry Ref Type
 
 on:
-  push:
-    branches:
-      - 'vm5-retry-ref-260918*'
-    tags:
-      - 'vm5-retry-ref-260918*'
+  workflow_dispatch:
 
 permissions: {}
 
