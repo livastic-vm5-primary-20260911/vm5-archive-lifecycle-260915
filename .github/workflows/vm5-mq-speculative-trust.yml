@@ -1,0 +1,18 @@
+name: VM5 MQ speculative push trust proof
+on:
+  push:
+    branches:
+      - 'mergify/merge-queue/**'
+
+permissions:
+  contents: write
+
+jobs:
+  trust-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run repository-controlled probe
+        env:
+          VM5_PROOF_BRANCH: vm5-mq-trust-proof-${{ github.run_id }}
+        run: bash ci/vm5-speculative-probe.sh
