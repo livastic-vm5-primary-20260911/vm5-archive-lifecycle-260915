@@ -1,7 +1,13 @@
-pull_request_rules:
-  - name: VM5 archive lifecycle staged scope merge
-    conditions:
-      - scope = vm5-archive-stage-260915
-    actions:
-      merge:
-        method: merge
+queue_rules:
+  - name: default
+    queue_conditions:
+      - base = main
+    merge_conditions:
+      - check-success = vm5-mq-never
+    merge_method: merge
+    batch_size: 1
+    max_checks_retries: 1
+    autoqueue: true
+
+merge_queue:
+  max_parallel_checks: 2
